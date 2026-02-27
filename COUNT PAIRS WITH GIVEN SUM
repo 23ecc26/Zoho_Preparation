@@ -1,0 +1,15 @@
+class Solution {
+    int countPairs(int arr[], int target) {
+        HashMap<Integer,Integer> mp = new HashMap<>();
+        int count = 0;
+        for(int i=0; i<arr.length; i++) {
+            mp.put(i,arr[i]);
+        }
+        for(int i=0; i<arr.length; i++) {
+            if(mp.containsValue(target-arr[i])) {
+                count++;
+            }
+        }
+        return count;
+    }
+}
