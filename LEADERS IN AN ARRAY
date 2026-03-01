@@ -1,0 +1,23 @@
+class Solution {
+    static ArrayList<Integer> leaders(int arr[]) {
+        ArrayList<Integer> li = new ArrayList<>();
+        int max = arr[arr.length-1];
+        li.add(max);
+        for(int i=arr.length-2; i>=0; i--) {
+            if(arr[i] >= max) {
+                max = arr[i];
+                li.add(arr[i]);
+            }
+        }
+        int left = 0;
+        int right = li.size()-1;
+        while(left < right) {
+            Integer temp = li.get(left);
+            li.set(left,li.get(right));
+            li.set(right,temp);
+            left++;
+            right--;
+        }
+        return li;
+    }
+}
